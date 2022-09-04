@@ -1,33 +1,30 @@
-# 3rd lesson. Homework
-
+# 4th lesson. Grid (how to arrange labels on the root window)
 import tkinter as tk
-import random
-
-colors = ('black', 'white', 'cyan', 'gray', 'purple', 'pink', 'orange', 'light yellow')
 
 
-def change_bg_color():
-    global colors
-    root['bg'] = colors[random.randint(0, len(colors) - 1)]
-
-
-# init root window
+# variables
+ROWS = 10
+COLUMNS = 10
 init_sizes = "800x450"
-offset = '+400+225'
+offset = "+400+225"
 
+# main body
 root = tk.Tk()
+root.geometry(init_sizes + offset)
 
 photo = tk.PhotoImage(file='joystick.png')
 root.iconphoto(False, photo)
-
-root.geometry(init_sizes + offset)
 root.title('My first GUI app')
-root.resizable(False, False)
 
-# Test button
-btn_chg_clr = tk.Button(text='change bg color',
-                        bg='light green',
-                        command=change_bg_color
-                        )
-btn_chg_clr.pack(pady=150)
+tk.Button(text='Start').grid(row=0,column=0, columnspan=10,stick='we')
+
+for i in range(1,ROWS):
+    for j in range(1,COLUMNS):
+        tk.Button(text='button').grid(row=i, column=j)
+
+tk.Button(text='Finish').grid(row=11,column=0, columnspan=10,stick='we')
+
+root.grid_columnconfigure(0, minsize=50)
+root.grid_columnconfigure(3, minsize=100)
+
 root.mainloop()
