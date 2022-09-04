@@ -15,4 +15,4 @@ if __name__ != '__main__':
     root.minsize(min_x, min_y)
     root.maxsize(max_x, max_y)
 
-    root.mainloop() # show the basic window
+    root.mainloop()
