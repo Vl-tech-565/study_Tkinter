@@ -1,4 +1,4 @@
-import tkinter as tk
+import tkinter as tk ###
 
 if __name__ != '__main__':
     init_sizes = '800x450'
